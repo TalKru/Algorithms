@@ -1,7 +1,5 @@
 package basic;
 
-import java.util.Arrays;
-
 public class FFF_weight_on_vertex {
 
 	public static int[][] Floyd_Warshall_weight_on_vertex(boolean[][] boolMat, int[] A) {
@@ -33,7 +31,6 @@ public class FFF_weight_on_vertex {
 				}
 			}
 		}
-
 		// ===========================(testing)====================================== //
 		System.out.println("After the conversion FROM VERTEX weight TO EDGE weight:");
 		printMatrix(FW_Mat);
@@ -46,7 +43,6 @@ public class FFF_weight_on_vertex {
 		System.out.println("After sending to original floyd_warshall function:");
 		printMatrix(FW_Mat);
 		// ========================================================================== //
-
 
 		// NOW THE FIX
 		//     A[i]  +     FW_Mat[i][j]     + A[j]
@@ -61,7 +57,6 @@ public class FFF_weight_on_vertex {
 				}
 			}
 		}
-
 		// ===========================(testing)====================================== //
 		System.out.println("AFTER THE FIX:");
 		printMatrix(FW_Mat);
@@ -70,10 +65,7 @@ public class FFF_weight_on_vertex {
 		return FW_Mat;
 	}
 
-	
-	
-	
-	// print function
+
 	public static void printMatrix(int[][] mat) {
 		int INF = Integer.MAX_VALUE;
 	
@@ -96,7 +88,6 @@ public class FFF_weight_on_vertex {
 	}
 
 
-	// MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN 
 	public static void main(String[] args) {
 
 		int INF = Integer.MAX_VALUE;
@@ -127,6 +118,5 @@ public class FFF_weight_on_vertex {
 		int[][] ansMat = Floyd_Warshall_weight_on_vertex(adjacencyMat, vertexWeight);  // ANSWER: Shortest Paths
 		System.out.println("Answer - Shortest paths costs:");
 		printMatrix(ansMat);
-
-	} // main
-} // class
+	}
+}

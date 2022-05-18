@@ -1,6 +1,5 @@
 package basic;
 
-import java.util.Arrays;
 
 public class FFF_path_index {
 
@@ -19,7 +18,6 @@ public class FFF_path_index {
 				pathMat[i][j] = adjacencyMat[i][j];
 			}
 		}
-
 		// initialize the String mat
 		for (int i = 0; i < len; i++) {
 			for (int j = 0; j < len; j++) {
@@ -70,10 +68,6 @@ public class FFF_path_index {
 	} /// FFF
 
 
-
-
-
-
 	// print String matrix
 	public static void printStringMat(String[][] mat) {
 
@@ -115,17 +109,6 @@ public class FFF_path_index {
 	}
 
 
-
-
-
-
-
-
-
-
-
-
-
 	public static void main(String[] args) {
 		// MAX_VALUE = 2147483647;
 		int inf = Integer.MAX_VALUE;
@@ -141,8 +124,6 @@ public class FFF_path_index {
 			};
 
 		FFF_index_paths(adjacencyMat);
-
-
 
 		/*
 				int[][] pathMat = floyd_warshall(adjacencyMat); // get the answer from Floyd-Warshall algorithm
@@ -181,5 +162,5 @@ public class FFF_path_index {
 					System.out.println("]");
 				} // print
 		 */
-	} // main
-} // class
+	}
+}

@@ -63,7 +63,6 @@ public class Best_Max_Rectangle {
 	}
 
 
-	// MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN 
 	public static void main(String[] args) {
 
 		int[][] inputMat = {
@@ -81,11 +80,7 @@ public class Best_Max_Rectangle {
 //				{1,  5,    -20, 3,  -5, - 1},
 //		}; 
 
-
 		int[] answer = bestSubRectangle(inputMat);
-
 		System.out.println(Arrays.toString(answer));
-
-
 	}
 }

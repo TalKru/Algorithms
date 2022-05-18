@@ -49,14 +49,7 @@ public class FFF_weight_on_edge_classic {
 		return pathMat;
 	} /// FFF
 	
-	
 
-	
-	
-	
-	
-	
-	// MAIN
 	public static void main(String[] args) {
 		
 		// int.MAX_VALUE == 2147483647;
@@ -114,8 +107,8 @@ public class FFF_weight_on_edge_classic {
 //			System.out.println("]");
 //		} // print
 		
-	} // main
-} // class
+	}
+}
 
 
 

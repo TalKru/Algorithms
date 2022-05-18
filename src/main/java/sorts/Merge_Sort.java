@@ -13,13 +13,11 @@ public class Merge_Sort {
 		for (int i = 0; i < nums.length; i++) {
 			nums[i] = rand.nextInt(1000);
 		}
-		
-		
 		System.out.println("Before: " + Arrays.toString(nums));
 		
 		long start = System.currentTimeMillis();
 		
-		mergeSort(nums); ///////////////////////////// Sort!
+		mergeSort(nums);
 		
 		long finish = System.currentTimeMillis();
 		long timeElapsed = finish - start;
@@ -28,10 +26,7 @@ public class Merge_Sort {
 		System.out.println("After: " + Arrays.toString(nums));
 	}
 
-	
-	
-	
-	
+
 	public static void mergeSort(int[] arr) {
 
 		if(arr.length < 2) {
@@ -47,16 +42,11 @@ public class Merge_Sort {
 		for (int i = 0; i < rightHalf.length; i++) {
 			rightHalf[i] = arr[midIndex + i];
 		}
-
 		mergeSort(leftHalf);
 		mergeSort(rightHalf);
-
 		// merge
 		sortedArraysMerge(arr, leftHalf, rightHalf);
 	}
-
-
-
 
 
 	// merge two sorted arrays in one
@@ -73,7 +63,6 @@ public class Merge_Sort {
 				res[k++] = b[j++];
 			}
 		}
-
 		// case when one of the arrays a or b was fully used
 		while(j < b.length) {
 			res[k++] = b[j++];
@@ -82,18 +71,4 @@ public class Merge_Sort {
 			res[k++] = a[i++];
 		}
 	}
-
-
-
-
-
-} // class
-
-
-
-
-
-
-
-
-
+}

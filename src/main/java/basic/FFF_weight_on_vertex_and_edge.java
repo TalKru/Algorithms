@@ -98,8 +98,6 @@ public class FFF_weight_on_vertex_and_edge {
 	}
 
 
-
-	// MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN 
 	public static void main(String[] args) {
 
 		int INF = Integer.MAX_VALUE;

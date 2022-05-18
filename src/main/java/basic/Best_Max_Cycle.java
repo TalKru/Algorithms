@@ -3,9 +3,9 @@ package basic;
 /**
  * Finding the best largest sub-interval in a cycle (cyclic array).
  * 
- * @param cyclicArr - cyclic array of Real numbers
+ * param cyclicArr - cyclic array of Real numbers
  * 
- * @return array of 3 values:
+ * return array of 3 values:
  * Result in array form: [start ][ end  ][maxSum]
  *                       [  0   ][  1   ][  2   ]                      
  * LECTURE:                   
@@ -19,10 +19,10 @@ public class Best_Max_Cycle {
 
 	public static int[] bestSubcycle(int[] cyclicArr) {
 
-		int ans[] = new int[3];
+		int[] ans = new int[3];
 		// ------------------------(special case: when all array is negative)--------------------------
-		if(true == isArrNegative(cyclicArr)) { // then the formula will not work, fix is simple, 
-			return ans = Best_MaxMin_Array.Best_Max_Array(cyclicArr);
+		if(isArrNegative(cyclicArr)) { // then the formula will not work, fix is simple,
+			return Best_MaxMin_Array.Best_Max_Array(cyclicArr);
 		}
 		// ============================================================================================
 
@@ -32,7 +32,6 @@ public class Best_Max_Cycle {
 		int[] regSum = Best_MaxMin_Array.Best_Max_Array(cyclicArr);
 		int regSumVal = regSum[2]; // answer candidate number 1
 		// ============================================================================================
-
 
 		// --------------------------------------------------------------------------------------------
 		// (-Array)
@@ -46,13 +45,13 @@ public class Best_Max_Cycle {
 
 		// (Array Sum)
 		int arraySum = 0;
+
 		for (int i = 0; i < cyclicArr.length; i++) {
 			arraySum += cyclicArr[i];
 		}
 		// (Array Sum) + Best_Max(-Array)
 		int cycSum = arraySum + cyclicSum[2]; // answer candidate number 2
 		// ============================================================================================
-
 
 		//            Max(part 1,    part 2)
 		ans[2] = Math.max(regSumVal, cycSum);
@@ -72,22 +71,21 @@ public class Best_Max_Cycle {
 	
 	/**
 	 * checking if an array is negative
-	 * @param arr - int arrays
-	 * @return: 
+	 * param arr - int arrays
+	 * return:
 	 * true - if all numbers are negative
 	 * false - if there is at least one non-negative number
 	 */
 	public static boolean isArrNegative(int[] arr) {
-		
-		for (int i = 0; i < arr.length; i++) {
-			if(arr[i] >= 0) {
+
+		for (int num : arr){
+			if (num >= 0){
 				return false;
 			}
 		}
 		return true;
 	}
-	
-	
+
 	
 	/**
 	 * creating random array
@@ -111,9 +109,6 @@ public class Best_Max_Cycle {
 	// ================================================================================================(end function)
 
 
-
-
-	// MAIN MIAN  MAIN MIAN  MAIN MIAN  MAIN MIAN  MAIN MIAN  MAIN MIAN  MAIN MIAN  MAIN MIAN  MAIN MIAN  MAIN MIAN  MAIN MIAN  MAIN MIAN 
 	public static void main(String[] args) {
 
 		//int[] arr = {-6,3,-10,100,-18,20,-2};  // cyclic example

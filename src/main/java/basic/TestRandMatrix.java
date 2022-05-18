@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 public class TestRandMatrix {
 
-
 	public static void printMat(int[][] mat) {
 
 		for (int i = 0; i < mat.length; i++) {
@@ -49,17 +48,13 @@ public class TestRandMatrix {
 
 		int[] result_1 = test.bestSubRectangle(mat);
 		int[] result_2 = Best_Max_Rectangle.bestSubRectangle(mat);
+
 		printMat(mat);
-		System.out.println();
-
-
 		System.out.println();
 		System.out.println("result_1: ");
 		System.out.println(Arrays.toString(result_1));
 		System.out.println("result_2: ");
 		System.out.println(Arrays.toString(result_2));
-
-
 	}
 
 }

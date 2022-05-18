@@ -2,7 +2,7 @@ package extra;
 
 import java.util.HashMap;
 
-public class LinearTimeMajorityVote {
+public class MajorityVote {
 
 	public static void main(String[] args) {
 
@@ -12,6 +12,7 @@ public class LinearTimeMajorityVote {
 		System.out.println("Most frequent character: " + mostFreqChar(chars));
 	}
 
+	// will work only when majority (more than 50%) element is present
 	public static char majorityVote(char[] chars) {
 
 		int vote = 0;

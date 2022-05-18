@@ -16,15 +16,9 @@ public class EquilibriumCell {
 		for (int i = 0; i < arr.length; i++) {
 			arr[i] = rand.nextInt(10);
 		}
-		int[] indexPrint = new int[arr.length];
-
-		for (int i = 0; i < indexPrint.length; i++) {
-			indexPrint[i] = i;
-		}
 		int result = equilibrium(arr);
 
 		System.out.println(Arrays.toString(arr));
-		System.out.println(Arrays.toString(indexPrint));
 		System.out.println("\nEquilibrium cell index: " + result);
 	}
 
@@ -51,8 +45,3 @@ public class EquilibriumCell {
 		return -1; // when there is no equilibrium point 
 	}
 }
-
-
-
-
-

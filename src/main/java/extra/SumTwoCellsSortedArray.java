@@ -1,23 +1,17 @@
-package RustRemoval;
+package extra;
 
 import java.util.Arrays;
-import java.util.Random;
-
 
 /*
  * Given a sorted array, check if adding 2 cells == k
- *   
  */
 public class SumTwoCellsSortedArray {
 
 	public static void main(String[] args) {
 
-
 		int[] arr = {10,15,17,17,17,20,21,22,23};
 		int k = 41;
 		int i,j;
-
-
 		TwoIndex result = twoSumSorted(arr, k);
 
 		i = result.getFirstIndex();
@@ -27,9 +21,7 @@ public class SumTwoCellsSortedArray {
 		System.out.println("K: " + k);
 		System.out.println("i: " + i + " -> " + arr[i]);
 		System.out.println("j: " + j + " -> " + arr[j]);
-
 	}
-
 
 	// if such sum does not exist will return (-1,-1)
 	public static TwoIndex twoSumSorted(int[] arr, int k) {
@@ -52,9 +44,7 @@ public class SumTwoCellsSortedArray {
 		return new TwoIndex(-1, -1);
 	}
 
-} // class
-
-
+}
 
 class TwoIndex {
 

@@ -79,11 +79,8 @@ public class test {
 		//		{1,  5,    -20, 3,  -5, - 1},
 		//	}; 
 
-
 		int[] answer = bestSubRectangle(inputMat);
-
 		System.out.println(Arrays.toString(answer));
-
 	}
 
 }
