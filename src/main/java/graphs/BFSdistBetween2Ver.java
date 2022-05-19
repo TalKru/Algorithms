@@ -9,18 +9,14 @@ public class BFSdistBetween2Ver {
 	
 	public static int BFSdist(ArrayList<Integer>[] graph, int from, int to) {
 		
-		Queue<Integer> queue = new LinkedList<Integer>();
-		
+		Queue<Integer> queue = new LinkedList<>();
 		int currVer = from; // starting point
-		
 		boolean[] visitedArr = new boolean[graph.length];
-		
 		int[] distArr = new int[graph.length];
 		
 		for (int i = 0; i < distArr.length; i++) {
 			distArr[i] = -1;
 		}
-		
 		// force init
 		queue.add(currVer);
 		visitedArr[currVer] = true;

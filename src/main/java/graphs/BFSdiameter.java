@@ -12,7 +12,7 @@ public class BFSdiameter {
 	 * WILL NOT WORK ON:
 	 * 1) UNCONNECTED GRAPH
 	 * 2) GRAPH WITH CYCLES
-	 * @return - 2 vertices which represents the diameter edges
+	 * return - 2 vertices which represents the diameter edges
 	 * [Vertex 1][Vertex 2][diameter size]
 	 * [   0    ][   1    ][      2      ]
 	 */
@@ -36,16 +36,16 @@ public class BFSdiameter {
 
 	/**
 	 * Searches for the most distant point from a given starting point
-	 * @param graph - G(E,V)
-	 * @param startPoint - a point to start from the graph traversal
-	 * @return one of the most distant points from the starting point
+	 * param graph - G(E,V)
+	 * param startPoint - a point to start from the graph traversal
+	 * return one of the most distant points from the starting point
 	 * or -1 in case of not fully connected graph
 	 * [ Vertex ][length to the most distant]
 	 * [   0    ][             1            ]
 	 */
 	public static int[] BFSmostDistantVertex(ArrayList<Integer>[] graph, int startPoint) {
 
-		Queue<Integer> queue = new LinkedList<Integer>();
+		Queue<Integer> queue = new LinkedList<>();
 
 		boolean[] visitedArr = new boolean[graph.length];  
 		Arrays.fill(visitedArr, false); // [F][F][F]...[F]
@@ -75,7 +75,6 @@ public class BFSdiameter {
 				}
 			}
 		}
-
 		//System.out.println("Starting point (Vertex): " + startPoint);
 		//System.out.println(Arrays.toString(distFromStart));
 
@@ -83,6 +82,7 @@ public class BFSdiameter {
 		int mostDistantVer = -1;
 
 		for (int i = 0; i < distFromStart.length; i++) {
+
 			if(distFromStart[i] > maxDistant) {
 				maxDistant = distFromStart[i];
 				mostDistantVer = i;
@@ -100,21 +100,17 @@ public class BFSdiameter {
 	// ==================================================================================================
 
 
-
-
-	// MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN 
 	public static void main(String[] args) {
 
-		int n = 8; // UPDATE <=======(!) <=======(!) <=======(!) <=======(!) <=======(!)
+		int n = 8; // UPDATE <=======(!)
 
 		ArrayList<Integer>[] tree = new ArrayList[n]; 
 		for (int i = 0; i < tree.length; i++) {
-			tree[i] = new ArrayList<Integer>();
+			tree[i] = new ArrayList<>();
 		}
 		// =====================(start tree input)==================== tree[].add();
 		
 		/** IN CASE OF ERROR - UPDATE: n */
-		
 		tree[0].add(2);
 		tree[0].add(3);
 		tree[0].add(4);
@@ -138,9 +134,6 @@ public class BFSdiameter {
 		tree[7].add(5);
 
 		// =====================(end tree)============================
-
 		BFSdiameterLimits(tree);
-
-	} // main
-
+	}
 }

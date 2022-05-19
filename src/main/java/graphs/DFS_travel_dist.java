@@ -1,9 +1,7 @@
 package graphs;
 
-import java.security.AllPermission;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.Stack;
 
 public class DFS_travel_dist {
@@ -15,11 +13,10 @@ public class DFS_travel_dist {
 
 		// TODO - check valid tree??? input...
 
-		Stack<Integer> stack = new Stack<Integer>();
+		Stack<Integer> stack = new Stack<>();
 		
 		boolean[] visited = new boolean[tree.length];
 		Arrays.fill(visited, false);
-
 
 		int[] dist = new int[tree.length];
 		Arrays.fill(dist, -1);
@@ -43,35 +40,25 @@ public class DFS_travel_dist {
 					current = tempNeighbor;
 
 					i = -1; // reset loop to start
-				} // if
-				
-			} 
-
- 
+				}
+			}
 			stack.pop(); 
 
 			if(!stack.isEmpty()) {
 				current = stack.peek();
 			}
-		} // while loop
-
-		
+		}
 		System.out.println(Arrays.toString(dist));
 	}
 
-
-
-
-	// MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN 
 	public static void main(String[] args) {
-		int n = 16; // UPDATE <=======(!) <=======(!) <=======(!) <=======(!) <=======(!)
 
+		int n = 16; // UPDATE <=======(!)
 		ArrayList<Integer>[] graph = new ArrayList[n];
 
 		for (int i = 0; i < graph.length; i++) {
-			graph[i] = new ArrayList<Integer>();
+			graph[i] = new ArrayList<>();
 		}
-
 		// =====================(start graph input)      graph[].add();
 		graph[0].add(10);
 		graph[0].add(6);
@@ -88,7 +75,6 @@ public class DFS_travel_dist {
 		graph[4].add(13);
 		graph[4].add(12);
 		graph[4].add(0);
-
 
 		graph[5].add(6);
 
@@ -120,9 +106,6 @@ public class DFS_travel_dist {
 
 		graph[15].add(2);
 		// =====================(end graph)
-
 		DFS(graph, 0);
-
 	}
-
 }

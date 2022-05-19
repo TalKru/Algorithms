@@ -1,5 +1,4 @@
 
-
 /*
  Procedure Huffman(C):     // C is the set of n characters and related information
 n = C.size
@@ -35,7 +34,6 @@ for i = 1 to n
 endfor
 
 
-
 psedo-code :
 public void huffmanCode()
 	for i=0; to n-1
@@ -49,12 +47,6 @@ public void huffmanCode()
 		end-while
  	end-for
 end-huffmanCode
-
-
-
-
-
-
  */
 package graphs;
 
@@ -81,7 +73,6 @@ public class HuffmanArray {
 		int[][] mat = new int[2*n-1][3];
 
 		int point = n;
-
 		int minA;
 		int minB;
 		int son_0 = 0;
@@ -89,11 +80,11 @@ public class HuffmanArray {
 
 		for (int i = 0; i < n-1; i++) { // O(n)
 
-
 			//minA = Collections.min(Arrays.asList(_freq));
 			minA = Arrays.stream(freqHelper).min().getAsInt(); // O(n) - find first min
 
 			for (int j = 0; j < freqHelper.length; j++) { // O(n)
+
 				if(freqHelper[j] == minA) {
 					freqHelper[j] = Integer.MAX_VALUE;
 					son_0 = j;
@@ -103,13 +94,13 @@ public class HuffmanArray {
 			minB = Arrays.stream(freqHelper).min().getAsInt(); // O(n) - find second min
 
 			for (int j = 0; j < freqHelper.length; j++) { // O(n)
+
 				if(freqHelper[j] == minB) {
 					freqHelper[j] = Integer.MAX_VALUE;
 					son_1 = j;
 					break;
 				}
 			}
-
 			freqHelper[point] = minA + minB;
 
 			mat[point][1] = son_0;
@@ -117,11 +108,8 @@ public class HuffmanArray {
 
 			mat[son_0][0] = point;
 			mat[son_1][0] = point;
-
 			++point;
 		}
-
-
 
 		/////////////////////////////////////////////////////////////////////
 		for (int i = 0; i < mat.length; i++) {
@@ -132,10 +120,10 @@ public class HuffmanArray {
 		System.out.println("------------------------");
 		/////////////////////////////////////////////////////////////////////
 
-		
 		String code[] = new String[n]; // array of codewords
 		
 		for (int i = 0; i < n; i++) { // for each leaf - return code word
+
 			code[i] = new String();
 			int child = i;
 			int parent = mat[child][0]; 
@@ -148,7 +136,6 @@ public class HuffmanArray {
 				else {
 					code[i] = code[i] + "1"; 
 				}
-				
 				child = parent;
 				parent = mat[child][0];
 			}
@@ -157,12 +144,8 @@ public class HuffmanArray {
 		for (int j = 0; j < code.length; j++) {
 			System.out.println(code[j]);
 		}
-
 	}
 	// ==================================================================================
-
-
-
 
 
 	public static void main(String[] args) {
@@ -170,8 +153,5 @@ public class HuffmanArray {
 		int[] freq = {12, 40, 15, 8, 25};
 
 		huffmanCode(freq);
-
-
-
-	} // main
+	}
 }

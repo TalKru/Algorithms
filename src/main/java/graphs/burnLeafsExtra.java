@@ -5,16 +5,15 @@ import java.util.Arrays;
 
 public class burnLeafsExtra {
 
-	
 	public static void treeCenterBurn(ArrayList<Integer>[] tree) {
 		
 		// check input - must be tree
 		// 1. m = n-1
 		// 2. single connected componenet
-		
 		int vertAmount = tree.length;
 		int burnsCounter = 0;
 		boolean[] whoIsAlive = new boolean[vertAmount];
+
 		Arrays.fill(whoIsAlive, true); // all leafs are safe and well... for now :) 
 		
 		/* attempt of O(n)
@@ -27,19 +26,16 @@ public class burnLeafsExtra {
 			}
 		}
 		*/
-		
-		
 		while( vertAmount > 2) {
 			
 			burnsCounter++; 
-			
-			/* 
+			/*
 			 (mark the nodes which were the neighbors of the leafs 
 			 since their degree may be reduced to 1 
 			 and they could by mistakenly taken as leafs at the wrong itteration) 
 			 Note: that for each itteration a new list is allocated hence there is no need to clean it. 
 			 */
-			ArrayList<Integer> leafNeighbors = new ArrayList<Integer>(); 
+			ArrayList<Integer> leafNeighbors = new ArrayList<>();
 			
 			for (int i = 0; i < tree.length; i++) {
 				if(tree[i].size()==1  &&  leafNeighbors.contains(i)==false ) {
@@ -53,7 +49,7 @@ public class burnLeafsExtra {
 					leafNeighbors.add(leafNeighbor); // mark neighbor to avoid false burn
 					
 					tree[leafNeighbor].remove( (Integer)i ); // disconnect the edge from neighbor side
-					tree[i].clear(); // optinal?             // disconnect the edge from leaf     side
+					tree[i].clear(); // optional?            // disconnect the edge from leaf     side
 				}
 			}
 		}
@@ -61,15 +57,12 @@ public class burnLeafsExtra {
 		int centerCounter = 0;
 		for (int i = 0; i < whoIsAlive.length; i++) {
 			
-			if(whoIsAlive[i] == true) {
+			if(whoIsAlive[i]) {
 				centerCounter++;
 				System.out.println("found center vertex: " + i);
 			}
 		}
 		System.out.println("tree has [" + centerCounter + "] centers!");
-		
-		
-		
 	}
 	// ========================================================================================
 
@@ -83,18 +76,15 @@ public class burnLeafsExtra {
 		}
 		// ========================================================================================
 	
-	
-	
-	// MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN 
+
 		public static void main(String[] args) {
 
-			int n = 9; // UPDATE <=======(!) <=======(!) <=======(!) <=======(!) <=======(!)
-			
-			ArrayList<Integer>[] tree = new ArrayList[n]; 
-			for (int i = 0; i < tree.length; i++) {
-				tree[i] = new ArrayList<Integer>();
-			}
+			int n = 9; // UPDATE <=======(!)
+			ArrayList<Integer>[] tree = new ArrayList[n];
 
+			for (int i = 0; i < tree.length; i++) {
+				tree[i] = new ArrayList<>();
+			}
 			// =====================(start tree input)
 			tree[0].add(1);
 			tree[0].add(4);
@@ -121,9 +111,7 @@ public class burnLeafsExtra {
 			tree[8].add(4);
 			tree[8].add(7);
 			// =====================(end tree)
-			
 			printTree(tree);
 			treeCenterBurn(tree);
 		}
-
 }

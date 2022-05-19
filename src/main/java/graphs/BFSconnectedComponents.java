@@ -9,8 +9,8 @@ public class BFSconnectedComponents {
 	
 	/**
 	 * Finds the number of connected components in graph:
-	 * @param graph - G(E,V).
-	 * @return amount of connected components.
+	 * param graph - G(E,V).
+	 * return amount of connected components.
 	 */
 	public static int BFScomponentsNum(ArrayList<Integer>[] graph) { // O(n)
 		
@@ -26,7 +26,6 @@ public class BFSconnectedComponents {
 				BFS_components_scan(graph, scanned, i); // i - is the start point for the next scan
 			}
 		}
-		
 		System.out.println("The graph has (" + compCounter + ") components.");
 		return compCounter;
 	}
@@ -58,17 +57,15 @@ public class BFSconnectedComponents {
 	}
 	// ====================================================================================================================
 
-	// MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN  MAIN MAIN MAIN MAIN MAIN  MAIN MAIN MAIN MAIN 
 	public static void main(String[] args) {
-		int n = 6; // UPDATE <=======(!) <=======(!) <=======(!) <=======(!) <=======(!)
 
-		ArrayList<Integer>[] graph = new ArrayList[n]; 
+		int n = 6; // UPDATE <=======(!)
+		ArrayList<Integer>[] graph = new ArrayList[n];
+
 		for (int i = 0; i < graph.length; i++) {
-			graph[i] = new ArrayList<Integer>();
+			graph[i] = new ArrayList<>();
 		}
-
 		// =====================(start tree input)
-		
 		graph[0].add(1);
 		graph[1].add(0);
 		
@@ -77,7 +74,6 @@ public class BFSconnectedComponents {
 		
 		graph[4].add(5);
 		graph[5].add(4);
-		
 		
 //		graph[0].add(1);
 //		graph[0].add(4);
@@ -104,11 +100,6 @@ public class BFSconnectedComponents {
 //		graph[8].add(4);
 //		graph[8].add(7);
 		// =====================(end tree)
-
 		BFScomponentsNum(graph);
-
-	} // main
-	
-	
-	
+	}
 }

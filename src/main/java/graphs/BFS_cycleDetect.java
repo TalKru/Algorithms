@@ -21,7 +21,7 @@ public class BFS_cycleDetect {
 	 */
 	public static boolean isCycle(ArrayList<Integer>[] graph, int startPoint) {
 
-		Queue<Integer> queue = new LinkedList<Integer>();
+		Queue<Integer> queue = new LinkedList<>();
 		
 		boolean[] visited = new boolean[graph.length];
 		Arrays.fill(visited, false);
@@ -64,7 +64,6 @@ public class BFS_cycleDetect {
 	// =========================================================================================================
 
 	
-	
 	/**
 	 * Searches for cycle in undirected graph.
 	 * If graph has multiple component then search will take place only at the component containing the starting point input.
@@ -76,9 +75,9 @@ public class BFS_cycleDetect {
 	 */
 	public static ArrayList<Integer> findCycleBFS(ArrayList<Integer>[] graph, int startPoint) {
 
-		ArrayList<Integer> cycle = new ArrayList<Integer>(); // result list
+		ArrayList<Integer> cycle = new ArrayList<>(); // result list
 
-		Queue<Integer> queue = new LinkedList<Integer>();
+		Queue<Integer> queue = new LinkedList<>();
 
 		boolean[] visited = new boolean[graph.length];
 		Arrays.fill(visited, false);
@@ -112,7 +111,7 @@ public class BFS_cycleDetect {
 					parent[tempNeighbor] = current;
 				}
 				/* if found visited neighbor which isn't your parent, then cycle is found. */
-				else if(visited[tempNeighbor] == true && tempNeighbor != parent[current]) {
+				else if(visited[tempNeighbor] && tempNeighbor != parent[current]) {
 					
 					System.out.println("Cycle detected at BFS level: " + level[tempNeighbor]);
 					
@@ -137,7 +136,6 @@ public class BFS_cycleDetect {
 						L = parent[L];
 						R = parent[R];
 					}
-					
 					// add the connecting vertex for both start & end (L == R)
 					cycle.add(0, L);
 					cycle.add(R);
@@ -152,8 +150,6 @@ public class BFS_cycleDetect {
 	// =========================================================================================================
 
 
-
-	// MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN
 	public static void main(String[] args) {
 		
 		int n = 11; // UPDATE n                             <=======(!!!) piter
@@ -161,9 +157,8 @@ public class BFS_cycleDetect {
 		ArrayList<Integer>[] graph = new ArrayList[n]; 
 
 		for (int i = 0; i < graph.length; i++) {
-			graph[i] = new ArrayList<Integer>();
+			graph[i] = new ArrayList<>();
 		}
-
 		// =====================(start tree input)========== graph[].add();
 		
 		graph[0].add(9);
@@ -200,8 +195,6 @@ public class BFS_cycleDetect {
 		// cycle edge:
 		graph[4].add(3);
 		graph[3].add(4);
-		
-		
 		/*
 		int n = 9; // UPDATE n                             <=======(!!!) rexi
 
@@ -210,9 +203,7 @@ public class BFS_cycleDetect {
 		for (int i = 0; i < graph.length; i++) {
 			graph[i] = new ArrayList<Integer>();
 		}
-
 		// =====================(start tree input)========== graph[].add();
-		
 		graph[0].add(7);
 		graph[0].add(4);
 		graph[0].add(3);
@@ -245,10 +236,7 @@ public class BFS_cycleDetect {
 		graph[7].add(0);
 		
 		graph[8].add(7);
-		
-		
 		*/
-
 		// test - run algorithm from each vertex and check for similar results
 		for (int i = 0; i < graph.length; i++) {
 			System.out.println("Start travers at: " + i);
@@ -258,12 +246,10 @@ public class BFS_cycleDetect {
 			System.out.println(ans.toString());
 			System.out.println("-----------------------------------------");
 		}
-
 		//		ArrayList<Integer> ans = findCycleBFS(graph, 6);
 		//		System.out.println(ans.toString());
 
 		//		boolean res = isCycle(graph, 6);
 		//		System.out.println(res);
 	}
-
 }

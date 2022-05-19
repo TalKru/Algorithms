@@ -7,14 +7,12 @@ import java.util.Queue;
 
 public class BFSdiameter2 {
 
-
-
 	/**
 	 * Finds the diameter (2 vertices) of a Tree graph only (uses BFS technique 2 time).
 	 * WILL NOT WORK ON:
 	 * 1) UNCONNECTED GRAPH
 	 * 2) GRAPH WITH CYCLES
-	 * @return - 2 vertices which represents the diameter edges
+	 * return - 2 vertices which represents the diameter edges
 	 * [Vertex 1][Vertex 2][diameter size]
 	 * [   0    ][   1    ][      2      ]
 	 */
@@ -31,9 +29,7 @@ public class BFSdiameter2 {
 		bfs2 = BFS_mostDistant(tree, vertex1);
 
 		int vertex2 = bfs2[0];
-
 		int diameter = bfs2[1]; // only after the second bfs return the correct diameter
-
 		int[] result = new int[3];
 
 		result[0] = diameter;
@@ -48,11 +44,10 @@ public class BFSdiameter2 {
 	}
 
 
-
 	/* returns [vertex][distance] */
 	public static int[] BFS_mostDistant(ArrayList<Integer>[] tree, int start) {
 
-		Queue<Integer> queue = new LinkedList<Integer>();
+		Queue<Integer> queue = new LinkedList<>();
 
 		int[] dist = new int[tree.length];
 		Arrays.fill(dist, -1);
@@ -82,7 +77,6 @@ public class BFSdiameter2 {
 				}
 			}
 		}
-
 		// now find the most distant by the dist array
 		int maxDist = -1;
 		int vertexIndex = -1;
@@ -100,22 +94,16 @@ public class BFSdiameter2 {
 	}
 
 
-
-
-
-	// MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN 
 	public static void main(String[] args) {
 
-		int n = 8; // UPDATE <=======(!) <=======(!) <=======(!) <=======(!) <=======(!)
+		int n = 8; // UPDATE <=======(!)
 
 		ArrayList<Integer>[] tree = new ArrayList[n]; 
 		for (int i = 0; i < tree.length; i++) {
-			tree[i] = new ArrayList<Integer>();
+			tree[i] = new ArrayList<>();
 		}
 		// =====================(start tree input)==================== tree[].add();
-
 		/** IN CASE OF ERROR - UPDATE: n */
-
 		tree[0].add(2);
 		tree[0].add(3);
 		tree[0].add(4);
@@ -137,12 +125,7 @@ public class BFSdiameter2 {
 		tree[6].add(2);
 
 		tree[7].add(5);
-
 		// =====================(end tree)============================
-
 		BFS_diameter(tree);
-
-	} // main
-
-
+	}
 }

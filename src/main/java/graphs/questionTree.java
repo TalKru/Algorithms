@@ -7,11 +7,6 @@ import java.util.Queue;
 
 public class questionTree {
 
-
-	/*
-	 * שאלה: צריך לבדוק האם קודקוד מסויים יושב על הקוטר של הגרף
-	 */
-
 	// [diameter][vi][vj]
 	public static boolean isGivenVertexIsOnDiameter(ArrayList<Integer>[] tree, int isVertexOnDiameter) {
 
@@ -22,9 +17,6 @@ public class questionTree {
 
 		int tempTravelVertex = bfs2;
 
-		
-		
-		
 		while(tempTravelVertex != -1) {
 
 			if(tempTravelVertex == isVertexOnDiameter) {
@@ -38,24 +30,15 @@ public class questionTree {
 		return false;
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
 
 	// return the most distant vertex from given start pint
 	public static int BFS_mostDistant(ArrayList<Integer>[] tree, int start, int[] parent) {
 
-		Arrays.fill(parent, -1); ////// <=======
+		Arrays.fill(parent, -1);
 
-
-		Queue<Integer> queue = new LinkedList<Integer>();
-
+		Queue<Integer> queue = new LinkedList<>();
 		int[] dist = new int[tree.length];
+
 		Arrays.fill(dist, -1);
 
 		boolean[] visited = new boolean[tree.length];
@@ -81,11 +64,10 @@ public class questionTree {
 					
 					visited[tempNeighbor] = true;
 					queue.add(tempNeighbor);
-					dist[tempNeighbor] = dist[curr]+1;
+					dist[tempNeighbor] = dist[curr] + 1;
 				}
 			}
 		}
-
 		// now find the most distant vertex by the dist array
 		int maxDist = -1;
 		int vertexIndex = -1;
@@ -100,19 +82,15 @@ public class questionTree {
 	}
 
 
-
-
-	// MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN 
 	public static void main(String[] args) {
 
-		int n = 9; // UPDATE <=======(!) <=======(!) <=======(!) <=======(!) <=======(!)
+		int n = 9; // UPDATE <=======(!)
+		ArrayList<Integer>[] tree = new ArrayList[n];
 
-		ArrayList<Integer>[] tree = new ArrayList[n]; 
 		for (int i = 0; i < tree.length; i++) {
 			tree[i] = new ArrayList<Integer>();
 		}
 		// =====================(start tree input)==================== tree[].add();
-
 		tree[0].add(1);
 		tree[1].add(0);
 		
@@ -144,6 +122,5 @@ public class questionTree {
 		// =====================(end tree)============================
 		int isVertexOnDiameter = 2;
 		System.out.println( isGivenVertexIsOnDiameter(tree, isVertexOnDiameter) );
-		
-	} // main
+	}
 }

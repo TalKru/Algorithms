@@ -7,29 +7,29 @@ public class EulerianCircuit {
 	
 	/**
 	 * finds the Eulerian Circuit in a given graph
-	 * @param graph
-	 * @return circle - vector which represents the Eulerian Circuit travel
+	 * param graph
+	 * return circle - vector which represents the Eulerian Circuit travel
 	 */
 	public static ArrayList<Integer> printEulerCircuit(ArrayList<Integer>[] graph) {
 		
 		/////////////////////////////////////////////////////////
 		/* first chech if valid input */
-		if(isEulerCircuit(graph) == false) { 
-			ArrayList<Integer> error = new ArrayList<Integer>();
+		if(isEulerCircuit(graph) == false) {
+
+			ArrayList<Integer> error = new ArrayList<>();
 			error.add(-1);
 			return error;
 		}
 		/////////////////////////////////////////////////////////
 
-		ArrayList<Integer> cycle = new ArrayList<Integer>(); // answer
+		ArrayList<Integer> cycle = new ArrayList<>(); // answer
 
 		int[] degree = new int[graph.length]; // temp degrees count for valid travel
 
 		for (int i = 0; i < degree.length; i++) { // find the degree for each vertex
 			degree[i] = graph[i].size();
 		}
-
-		Stack<Integer> stack = new Stack<Integer>();
+		Stack<Integer> stack = new Stack<>();
 
 		int curr = 0; // start point - any random vertex
 
@@ -52,25 +52,21 @@ public class EulerianCircuit {
 				curr = neighbor; // advance travel
 			}
 			else { // if degree[curr] == 0
-				
 				cycle.add(stack.pop());
 				
-				if(stack.isEmpty() == false) {
+				if(!stack.isEmpty()) {
 					curr = stack.peek();
 				}
 			}
-		} // while
-
+		}
 		return cycle;
 	}
-
-
 	
 	// =================================================================================================
 	/**
 	 * Checks if a graph has Eulerian Circuit
-	 * @param graph
-	 * @return [true / false]
+	 * param graph
+	 * return [true / false]
 	 */
 	public static boolean isEulerCircuit(ArrayList<Integer>[] graph) {
 
@@ -88,19 +84,16 @@ public class EulerianCircuit {
 	}
 	// =================================================================================================
 
-	
-
 	/**
 	 * Checks if a graph has Eulerian Path
-	 * @param graph
-	 * @return [true / false]
+	 * param graph
+	 * return [true / false]
 	 */
 	public static boolean isEulerPath(ArrayList<Integer>[] graph) {
 
 		if(BFSconnectedComponents.BFScomponentsNum(graph) != 1) { // check if graph is connected
 			return false;
 		}
-		
 		int oddDegreesCount = 0;
 		
 		for (int i = 0; i < graph.length; i++) {
@@ -118,20 +111,15 @@ public class EulerianCircuit {
 	}
 	// =================================================================================================
 
-
-	
-	
-	// MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN 
 	public static void main(String[] args) {
 		
-		int n = 10; // UPDATE n                             <=======(!!!) Lusi
+		int n = 10; // UPDATE n
 
 		ArrayList<Integer>[] graph = new ArrayList[n]; 
 
 		for (int i = 0; i < graph.length; i++) {
-			graph[i] = new ArrayList<Integer>();
+			graph[i] = new ArrayList<>();
 		}
-		
 		 graph[0].add(9);
 		 graph[0].add(1);
 		 graph[0].add(4);
@@ -165,14 +153,12 @@ public class EulerianCircuit {
 		 
 		 graph[9].add(8);
 		 graph[9].add(0);
-		 
-		 
+
 		 ArrayList<Integer> resultCicuit = new ArrayList();
 		 
 		 resultCicuit = printEulerCircuit(graph);
 		 
 		 System.out.print("Eulerian Circuit: ");
 		 System.out.println(resultCicuit.toString());
-	} // main
-
+	}
 }

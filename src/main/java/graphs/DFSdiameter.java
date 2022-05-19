@@ -20,26 +20,25 @@ public class DFSdiameter {
 		System.out.println("Diameter limits: (" + result[0] + ")----~[...]~----(" + result[1] + ")");
 		return result;
 	}
-
 	/**
 	 * Finds the most distant vertex from the 
 	 * given starting point using DFS search. Natively in a tree, this vertex would be one of the diameter limits
-	 * @param tree - input graph must be a tree
-	 * @param start - vertex to begin DFS from
-	 * @return most distant vertex from the given starting point
+	 * param tree - input graph must be a tree
+	 * param start - vertex to begin DFS from
+	 * return most distant vertex from the given starting point
 	 */
 	public static int DFSmostDistantLeaf(ArrayList<Integer>[] tree, int start){
 
-		Stack<Integer> stack = new Stack<Integer>();
+		Stack<Integer> stack = new Stack<>();
 		boolean[] visited = new boolean[tree.length];
 		int[] dist = new int[tree.length];
 
-		for (int i = 0; i < dist.length; i++) { 
+		for (int i = 0; i < dist.length; i++) {
 			dist[i] = -1;                         // mark all as unreachable (-1)
-		} 
-
+		}
 		// force start
 		int current = start;
+
 		visited[current] = true;
 		dist[current] = 0;
 		stack.push(current);
@@ -59,7 +58,9 @@ public class DFSdiameter {
 
 					dist[tempNeighbor] = dist[current] +1;
 					visited[tempNeighbor] = true; // mark as visited
+
 					stack.push(tempNeighbor);
+
 					current = tempNeighbor;
 					i = -1; // reset loop, -1++ = 0, and we start from the beginning again, only with other vertex
 				}
@@ -70,35 +71,29 @@ public class DFSdiameter {
 				current = stack.peek();
 			}
 		}
-
 		// find the most distant vertex
 		int Index = 0;
 		int maxVal = Integer.MIN_VALUE;
+
 		for (int i = 0; i < dist.length; i++) {
+
 			if(dist[i] > maxVal) {
 				maxVal = dist[i];
 				Index = i;
 			}
 		}
-		
 		System.out.println(Arrays.toString(dist));
-
-		
 		return Index;
 	}
 
-
-
-
-	// MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN 
 	public static void main(String[] args) {
-		int n = 16; // UPDATE <=======(!) <=======(!) <=======(!) <=======(!) <=======(!)
+		int n = 16; // UPDATE <=======(!)
 
-		ArrayList<Integer>[] graph = new ArrayList[n]; 
+		ArrayList<Integer>[] graph = new ArrayList[n];
+
 		for (int i = 0; i < graph.length; i++) {
-			graph[i] = new ArrayList<Integer>();
+			graph[i] = new ArrayList<>();
 		}
-
 		// =====================(start tree input)
 		graph[0].add(10);
 		graph[0].add(6);
@@ -146,9 +141,6 @@ public class DFSdiameter {
 
 		graph[15].add(2);
 		// =====================(end tree)
-
 		DFSdiamet(graph);
-
-	} // main
-
+	}
 }

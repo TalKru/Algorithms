@@ -9,8 +9,8 @@ public class burnLeafs {
 	 * finds the center, radius, diameter of a tree.
 	 * In case of wrong input or a non-tree graph will Exit.
 	 * (input must be a connecter graph without cycles)
-	 * @param tree - array of ArraysLists
-	 * @return result array:
+	 * param tree - array of ArraysLists
+	 * return result array:
 	 *         [center1][center2 / NO second][diameter]
 	 *         [0------][1------------------][2-------]
 	 *         
@@ -28,8 +28,10 @@ public class burnLeafs {
 		int[] result = new int[3];
 		
 		boolean[] liveVertices = new boolean[tree.length]; // will help us find is the center vertices
-		for (int i = 0; i < liveVertices.length; i++) { liveVertices[i] = true; } // [T][T][T]...[T]
-		
+
+		for (int i = 0; i < liveVertices.length; i++) { // [T][T][T]...[T]
+			liveVertices[i] = true;
+		}
 		int liveVertNum = tree.length; // remaining vertex counter - will tell us when to stop burning
 		int firesCount = 0; // count the fires number to calc radius and diameter
 
@@ -40,11 +42,11 @@ public class burnLeafs {
 			 * and will be burned by mistake as a leaf, to prevent such case 
 			 * we must save all the the neighbors for each burn-cycle to remember not to burn them prematurely
 			 */
-			ArrayList<Integer> tempNrighbors = new ArrayList<Integer>(); 
+			ArrayList<Integer> tempNrighbors = new ArrayList<>();
 
 			for (int i = 0; i < tree.length; i++) { // burning one layer of leafs
 
-				if( tree[i].size()==1 && tempNrighbors.contains(i)==false ) { //  degree == 1 (leaf is found)
+				if( tree[i].size()==1 && tempNrighbors.contains(i) == false ) { //  degree == 1 (leaf is found)
 
 					int neighbor = tree[i].get(0); // save the neighbor to remove current leaf from his list
 					tempNrighbors.add(neighbor); // add to "safe from burn" list
@@ -58,20 +60,18 @@ public class burnLeafs {
 				} // if
 			}
 		}
-		
 		// return the remaining center vertices
 		int centerCounter = 0;
+
 		for (int i = 0; i < liveVertices.length; i++) {
-			if( true == liveVertices[i]) { // search for survivals
+
+			if(liveVertices[i]) { // search for survivals
 				
 				result[centerCounter] = i;
-				
-				++centerCounter;
-				
+				centerCounter++;
 				System.out.println("Center vertex: " + i);
 			}
 		}
-		
 		if(centerCounter == 2) {
 			
 			result[2] = 2*firesCount+1;
@@ -82,7 +82,7 @@ public class burnLeafs {
 		else if(centerCounter == 1) {
 			
 			result[1] = -1; // mark that there is NO second center
-			result[2] = 2*firesCount;
+			result[2] = 2 * firesCount;
 					
 			System.out.println("Diameter: " + (2*firesCount) );
 			System.out.println("Radius: " + firesCount );
@@ -90,7 +90,6 @@ public class burnLeafs {
 		else { 
 			System.out.println("Error");
 		}
-		
 		//System.out.println(Arrays.toString(result));
 		return result;
 	}
@@ -108,14 +107,12 @@ public class burnLeafs {
 		}
 		// note we count each edge twice (a)---(b) 
 		// so we must divide by 2 the result
-		edges = (edges/2);
-		if( vertices != (edges+1)  ) {
+		edges = (edges / 2);
+		if( vertices != (edges + 1)  ) {
 			return false;
 		}
-
 		// check for single connected component, else throw error
 		/**TO DO...**/
-
 		return true;
 	}
 	// ========================================================================================
@@ -130,16 +127,14 @@ public class burnLeafs {
 	}
 	// ========================================================================================
 
-	// MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN  MAIN 
 	public static void main(String[] args) {
 
-		int n = 9; // UPDATE <=======(!) <=======(!) <=======(!) <=======(!) <=======(!)
+		int n = 9; // UPDATE <=======(!)
 		
 		ArrayList<Integer>[] tree = new ArrayList[n]; 
 		for (int i = 0; i < tree.length; i++) {
 			tree[i] = new ArrayList<Integer>();
 		}
-
 		// =====================(start tree input)
 		tree[0].add(1);
 		tree[0].add(4);
@@ -166,7 +161,6 @@ public class burnLeafs {
 		tree[8].add(4);
 		tree[8].add(7);
 		// =====================(end tree)
-		
 		printTree(tree);
 		findTreeCenter(tree);
 	}
